@@ -11,6 +11,7 @@ build:
     python: "3.13"
 
   commands:
+    - pwd
     # Install Pelican and its dependencies
     - pip install "pelican[markdown]"
     # Build the site and save generated files into Read the Docs directory
