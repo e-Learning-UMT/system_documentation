@@ -13,6 +13,8 @@ build:
   commands:
     - pwd
     - ls -la
+    - cd docs
+    - cat pelicanconf.py
     # Install Pelican and its dependencies
     - pip install "pelican[markdown]"
     # Build the site and save generated files into Read the Docs directory
