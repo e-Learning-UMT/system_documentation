@@ -1,0 +1,6 @@
+sphinx
+sphinxext-opengraph
+furo==2023.9.10
+livereload
+matplotlib
+tomli;python_version<"3.11"
