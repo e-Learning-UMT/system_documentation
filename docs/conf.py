@@ -30,9 +30,11 @@ extensions = [
     "sphinxext.opengraph",
 ]
 source_suffix = ".rst"
-# The documentation is stored under the ``source`` directory, so point the
-# master document there instead of the project root.
-master_doc = "source/index"
+
+# The master document must be in the project root so that index.html is built at
+# the documentation's top level. Include ``source/index.rst`` from a short
+# ``index.rst`` file at the root.
+master_doc = "index"
 
 project = project_data.get("name", "LUMACHE").upper()
 year = datetime.datetime.fromtimestamp(
