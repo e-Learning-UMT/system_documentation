@@ -57,7 +57,7 @@ extlinks = {"pelican-doc": ("https://docs.getpelican.com/en/latest/%s.html", "%s
 # -- Options for HTML output --------------------------------------------------
 
 html_theme = "furo"
-html_title = f"<strong>{project}</strong> <i>{release}</i>"
+html_title = "<strong>{project}</strong> <i>{release}</i>"
 html_static_path = ["_static"]
 html_theme_options = {
     "light_logo": "elearning.png",
