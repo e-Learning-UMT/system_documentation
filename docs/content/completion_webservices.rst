@@ -111,12 +111,12 @@ Sends an HTTP POST notification to configured webhook URLs whenever a user compl
 
 Sent as JSON with content type `application/json`:
 
-```json
-{
-  "coursecode": "ABC123",
-  "studentmatric": "MATRIC123"
-}
-```
+.. code-block:: json
+
+   {
+     "coursecode": "ABC123",
+     "studentmatric": "MATRIC123"
+   }
 
 ### Logging & Reports
 

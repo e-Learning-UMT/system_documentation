@@ -84,13 +84,14 @@ def setup(app):
 
 
 # -- Options for LaTeX output -------------------------------------------------
+# Use the same document name as ``master_doc`` for LaTeX outputs
 latex_documents = [
-    ("index", "Pelican.tex", "Pelican Documentation", "Justin Mayer", "manual"),
+    ("source/index", "Pelican.tex", "Pelican Documentation", "Justin Mayer", "manual"),
 ]
 
 # -- Options for manual page output -------------------------------------------
 man_pages = [
-    ("index", "pelican", "pelican documentation", ["Justin Mayer"], 1),
+    ("source/index", "pelican", "pelican documentation", ["Justin Mayer"], 1),
     (
         "pelican-themes",
         "pelican-themes",
