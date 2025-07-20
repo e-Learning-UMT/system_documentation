@@ -11,7 +11,7 @@ else:
 
 sys.path.append(os.path.abspath(os.pardir))
 
-import lumache
+
 
 
 with open("../pyproject.toml", "rb") as f:
@@ -36,13 +36,13 @@ source_suffix = ".rst"
 # ``index.rst`` file at the root.
 master_doc = "index"
 
-project = project_data.get("name", "LUMACHE").upper()
+project = project_data.get("name", "e-Learning Platrform Services Documentation").upper()
 year = datetime.datetime.fromtimestamp(
     int(os.environ.get("SOURCE_DATE_EPOCH", time.time())), datetime.timezone.utc
 ).year
 project_copyright = f"2010–{year}"  # noqa: RUF001
 exclude_patterns = ["_build"]
-release = project_data.get("version") or lumache.__version__
+release = project_data.get("version") or "1.0.0"
 version = ".".join(release.split(".")[:1])
 last_stable = release
 requires_python = project_data.get("requires-python") or ""
@@ -60,8 +60,8 @@ html_theme = "furo"
 html_title = f"<strong>{project}</strong> <i>{release}</i>"
 html_static_path = ["_static"]
 html_theme_options = {
-    "light_logo": "pelican-logo.svg",
-    "dark_logo": "pelican-logo.svg",
+    "light_logo": "elearning.png",
+    "dark_logo": "elearning.png",
     "navigation_with_keys": True,
 }
 
