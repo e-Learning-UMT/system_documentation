@@ -33,6 +33,7 @@ source_suffix = ".rst"
 # The documentation is stored under the ``source`` directory, so point the
 # master document there instead of the project root.
 master_doc = "source/index"
+
 project = project_data.get("name", "LUMACHE").upper()
 year = datetime.datetime.fromtimestamp(
     int(os.environ.get("SOURCE_DATE_EPOCH", time.time())), datetime.timezone.utc
