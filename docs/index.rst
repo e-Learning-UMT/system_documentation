@@ -19,7 +19,7 @@ This site provides comprehensive guides, references, and information to help you
    api_reference
    troubleshooting
    faq
-   completion_webservices
+   source/completion_webservices
    contributing
    license
    changelog
