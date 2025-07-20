@@ -30,10 +30,12 @@ extensions = [
     "sphinxext.opengraph",
 ]
 source_suffix = ".rst"
+
 # The master document must be in the project root so that index.html is built at
 # the documentation's top level. Include ``source/index.rst`` from a short
 # ``index.rst`` file at the root.
 master_doc = "index"
+
 project = project_data.get("name", "LUMACHE").upper()
 year = datetime.datetime.fromtimestamp(
     int(os.environ.get("SOURCE_DATE_EPOCH", time.time())), datetime.timezone.utc
@@ -86,12 +88,12 @@ def setup(app):
 # -- Options for LaTeX output -------------------------------------------------
 # Use the same document name as ``master_doc`` for LaTeX outputs
 latex_documents = [
-    ("index", "Pelican.tex", "Pelican Documentation", "Justin Mayer", "manual"),
+    ("source/index", "Pelican.tex", "Pelican Documentation", "Justin Mayer", "manual"),
 ]
 
 # -- Options for manual page output -------------------------------------------
 man_pages = [
-    ("index", "pelican", "pelican documentation", ["Justin Mayer"], 1),
+    ("source/index", "pelican", "pelican documentation", ["Justin Mayer"], 1),
     (
         "pelican-themes",
         "pelican-themes",
