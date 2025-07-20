@@ -11,11 +11,11 @@ else:
 
 sys.path.append(os.path.abspath(os.pardir))
 
+import lumache
+
 
 with open("../pyproject.toml", "rb") as f:
-    project_data = tomllib.load(f).get("project")
-    if project_data is None:
-        raise KeyError("project data is not found")
+    project_data = tomllib.load(f).get("project") or {}
 
 
 # -- General configuration ----------------------------------------------------
@@ -25,23 +25,29 @@ gettext_compact = False
 gettext_uuid = True
 extensions = [
     "sphinx.ext.autodoc",
+    "sphinx.ext.autosummary",
     "sphinx.ext.extlinks",
     "sphinxext.opengraph",
 ]
 source_suffix = ".rst"
+# The master document must be in the project root so that index.html is built at
+# the documentation's top level. Include ``source/index.rst`` from a short
+# ``index.rst`` file at the root.
 master_doc = "index"
-project = project_data.get("name").upper()
+project = project_data.get("name", "LUMACHE").upper()
 year = datetime.datetime.fromtimestamp(
     int(os.environ.get("SOURCE_DATE_EPOCH", time.time())), datetime.timezone.utc
 ).year
 project_copyright = f"2010–{year}"  # noqa: RUF001
 exclude_patterns = ["_build"]
-release = project_data.get("version")
+release = project_data.get("version") or lumache.__version__
 version = ".".join(release.split(".")[:1])
-last_stable = project_data.get("version")
+last_stable = release
+requires_python = project_data.get("requires-python") or ""
+min_python = requires_python.split(",")[0] if requires_python else "N/A"
 rst_prolog = f"""
 .. |last_stable| replace:: :pelican-doc:`{last_stable}`
-.. |min_python| replace:: {project_data.get("requires-python").split(",")[0]}
+.. |min_python| replace:: {min_python}
 """
 
 extlinks = {"pelican-doc": ("https://docs.getpelican.com/en/latest/%s.html", "%s")}
@@ -78,6 +84,7 @@ def setup(app):
 
 
 # -- Options for LaTeX output -------------------------------------------------
+# Use the same document name as ``master_doc`` for LaTeX outputs
 latex_documents = [
     ("index", "Pelican.tex", "Pelican Documentation", "Justin Mayer", "manual"),
 ]
